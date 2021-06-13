@@ -1,0 +1,5 @@
+src/not_in_git/
+dst/
+build/
+node_modules/
+.idea/
