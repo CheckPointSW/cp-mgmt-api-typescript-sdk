@@ -1,5 +1,5 @@
-import getLogger from "../logger/log";
-import {ApiClient} from "../cpapi/apiClient";
+import getLogger from '../logger/log';
+import ApiClient from '../cpapi/apiClient';
 
 let logger = getLogger('addAccessRule');
 

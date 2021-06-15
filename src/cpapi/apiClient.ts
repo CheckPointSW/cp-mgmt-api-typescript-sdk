@@ -1,25 +1,31 @@
-import axios, {AxiosProxyConfig, AxiosRequestConfig, AxiosResponse} from "axios";
-import {Agent} from "https";
-import getLogger from "../logger/log";
-import {Md5} from "ts-md5";
-import {ApiError} from "../errors/apiError";
-import {log} from "../decorators/loggingDecorator";
-import {ApiUtils} from "./apiUtils";
-import * as tls from "tls";
-import {ConnectionOptions} from "tls";
-import * as readline from "readline";
-import * as fs from "fs";
+import axios, {AxiosProxyConfig, AxiosRequestConfig, AxiosResponse} from 'axios';
+import {Agent} from 'https';
+import getLogger from '../logger/log';
+import {Md5} from 'ts-md5';
+import ApiError from '../errors/apiError';
+import log from '../decorators/loggingDecorator';
+import ApiUtils from './apiUtils';
+import * as tls from 'tls';
+import {ConnectionOptions} from 'tls';
+import * as readline from 'readline';
+import * as fs from 'fs';
 
 
-const SID_HEADER = 'X-chkp-sid'
-const SID = 'sid'
+const SID_HEADER = 'X-chkp-sid';
+const CONTENT_LENGTH_HEADER = 'Content-Length';
+const SID = 'sid';
 const TASK_ID = 'task-id';
 const SHOW_TASK = 'show-task';
 const SENSITIVE_REQUEST_COMMANDS = ['login', 'add-administrator', 'set-administrator', 'add-opsec-application', 'set-opsec-application',
     'add-vpn-community-meshed', 'set-vpn-community-meshed', 'add-vpn-community-star', 'set-vpn-community-star', 'add-simple-gateway',
     'set-simple-gateway', 'add-data-center-server', 'set-data-center-server', 'delete-api-key', 'add-server-certificate',
-    'set-server-certificate', 'add-user', 'set-user', 'add-mds', 'set-mds', 'add-checkpoint-host', 'set-checkpoint-host']
+    'set-server-certificate', 'add-user', 'set-user', 'add-mds', 'set-mds', 'add-checkpoint-host', 'set-checkpoint-host'];
 const FINGERPRINTS_FILE = '../fingerprints.json';
+let headers: any = {
+    'User-Agent': 'typescript-api-wrapper',// If we run node.js need this header, and if we run through browser we don't
+    'Accept': '*/*',
+    'Content-Type': 'application/json'
+};
 
 
 export interface ApiClientArgs
@@ -46,7 +52,7 @@ export interface LoginArgs
 }
 
 
-export class ApiClient {
+export default class ApiClient {
     private _port: number;
     private _fingerprint?: string;
     private _sid?: string;
@@ -122,7 +128,7 @@ export class ApiClient {
 
     @log()
     logout() {
-        return this.apiCall("logout")
+        return this.apiCall('logout')
             .then(response => {
                 this.agent.destroy();
                 return response;
@@ -131,12 +137,12 @@ export class ApiClient {
 
     @log()
     publish() {
-        return this.apiCall("publish");
+        return this.apiCall('publish');
     }
 
     @log()
     discard() {
-        return this.apiCall("discard");
+        return this.apiCall('discard');
     }
 
     @log()
@@ -171,13 +177,8 @@ PAYLOAD: ${JSON.stringify(payloadForLog, null, 2)}`);
             throw new ApiError('Fingerprint is not OK.');
         }
 
-        // Set headers
-        let headers: any = {
-            "User-Agent": "typescript-api-wrapper",// If we run node.js need this header, and if we run through browser we don't
-            "Accept": "*/*",
-            "Content-Type": "application/json",
-            "Content-Length": Object.keys(payload).length// If we run node.js need this header, and if we run through browser we don't
-        };
+        headers[CONTENT_LENGTH_HEADER] = Object.keys(payload).length;// If we run node.js need this header, and if we run through browser we don't
+
         if (sid != null) {
             this.sid = sid;
         }
@@ -361,7 +362,7 @@ DATA: ${JSON.stringify(dataForLog, null, 2)}`;
                 logger.info(`Server Fingerprint (SHA-256): ${fingerprint}`);
                 resolve(fingerprint);
                 client.end(() => {
-                    logger.info("Client closed successfully after getting the server fingerprint.");
+                    logger.info('Client closed successfully after getting the server fingerprint.');
                 });
             });
         })

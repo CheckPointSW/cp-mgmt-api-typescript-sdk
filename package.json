@@ -1,9 +1,14 @@
 {
-  "name": "cp-mgmt-typescript-sdk",
+  "name": "@chkp/cp-mgmt-typescript-sdk",
   "version": "1.0.0",
   "license": "MIT",
   "main": "dst/cp-mgmt-typescript-sdk.js",
   "types": "dst/cp-mgmt-typescript-sdk.d.ts",
+  "homepage": "https://github.com/CheckPointSW/cp-mgmt-api-typescript-sdk",
+  "url": "https://github.com/CheckPointSW/cp-mgmt-api-typescript-sdk",
+  "repository": "https://github.com/CheckPointSW/cp-mgmt-api-typescript-sdk",
+  "description": "A JavaScript SDK library to interact with Check Point API Management",
+  "author": "Or Soffer (https://github.com/chkp-orso)",
   "dependencies": {
     "@types/node": "^14.6.3",
     "axios": "^0.20.0",

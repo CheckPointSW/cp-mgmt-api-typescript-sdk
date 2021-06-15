@@ -1,5 +1,5 @@
-import {ApiClient} from "../cpapi/apiClient";
-import {AxiosResponse} from "axios";
+import ApiClient from '../cpapi/apiClient';
+import {AxiosResponse} from 'axios';
 
 function addFewHostsAsynchronously() {
     let apiClient = new ApiClient({server: '172.23.78.75'});

@@ -1,6 +1,6 @@
-import {log} from "../decorators/loggingDecorator";
+import log from '../decorators/loggingDecorator';
 
-export class ApiUtils {
+export default class ApiUtils {
     @log()
     static async sleep(ms: number) {
         return new Promise(resolve => setTimeout(resolve, 2000));

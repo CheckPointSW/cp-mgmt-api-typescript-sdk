@@ -8,7 +8,7 @@ import {
     LogLevel, RuntimeSettings,
 } from 'typescript-logging'
 import {Guid} from 'guid-typescript'
-import {CustomLogger} from "./CustomLogger";
+import CustomLogger from './customLogger';
 
 enum ItpLogLevel {
     Trace = LogLevel.Trace,

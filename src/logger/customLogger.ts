@@ -1,7 +1,7 @@
-import {AbstractCategoryLogger, Category, CategoryLogMessage, LogLevel, RuntimeSettings} from "typescript-logging";
-import * as fs from "fs";
+import {AbstractCategoryLogger, Category, CategoryLogMessage, LogLevel, RuntimeSettings} from 'typescript-logging';
+import * as fs from 'fs';
 
-export class CustomLogger extends AbstractCategoryLogger {
+export default class CustomLogger extends AbstractCategoryLogger {
 
     constructor(category: Category, runtimeSettings: RuntimeSettings) {
         super(category, runtimeSettings);

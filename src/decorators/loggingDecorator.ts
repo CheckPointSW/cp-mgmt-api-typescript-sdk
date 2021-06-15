@@ -1,8 +1,8 @@
-import getLogger from "../logger/log";
+import getLogger from '../logger/log';
 
 const logger = getLogger('loggingDecorator')
 
-export function log() {
+export default function log() {
     return function (target: Object, propertyKey: string, descriptor?: PropertyDescriptor) {
         // If the method we want to decorate is a regular method then the descriptor.value is the originalMethod.
         // But if it's an arrow function,

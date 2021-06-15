@@ -1,8 +1,7 @@
 //Only errors from this type will be displayed in the client
-import {log} from "../decorators/loggingDecorator";
-import getLogger from "../logger/log";
+import getLogger from '../logger/log';
 
-export class ApiError extends Error {
+export default class ApiError extends Error {
     //The message to display in the client
     message: string
     //Error response code if applicable
@@ -26,7 +25,7 @@ export class ApiError extends Error {
             }
         }
         if (!message) {
-            message = "API Error";
+            message = 'API Error';
         }
         super(message)
         this.message = message;

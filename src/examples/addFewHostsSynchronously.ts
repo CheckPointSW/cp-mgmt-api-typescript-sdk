@@ -1,4 +1,4 @@
-import {ApiClient} from "../cpapi/apiClient";
+import ApiClient from '../cpapi/apiClient';
 
 function addFewHostsSynchronously() {
     let apiClient = new ApiClient({server: '172.23.78.75'});
