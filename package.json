@@ -7,8 +7,11 @@
   "homepage": "https://github.com/CheckPointSW/cp-mgmt-api-typescript-sdk",
   "url": "https://github.com/CheckPointSW/cp-mgmt-api-typescript-sdk",
   "repository": "https://github.com/CheckPointSW/cp-mgmt-api-typescript-sdk",
-  "description": "A JavaScript SDK library to interact with Check Point API Management",
+  "description": "Check Point API Typescript Development Kit simplifies the use of the Check Point Management APIs.\nThe kit contains the API library files, and sample files demonstrating the capabilities of the library.",
   "author": "Or Soffer (https://github.com/chkp-orso)",
+  "files": [
+    "dst/**/*"
+  ],
   "dependencies": {
     "@types/node": "^14.6.3",
     "axios": "^0.20.0",

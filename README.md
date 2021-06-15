@@ -12,7 +12,7 @@ $ npm install @chkp/cp-mgmt-api-typescript-sdk
 ## Basic Usage
 
 ```jsx
-import {ApiClient, getLogger} from '@chkp/cp-mgmt-api-typescript-sdk';
+import ApiClient, {getLogger} from '@chkp/cp-mgmt-api-typescript-sdk';
 
 let logger = getLogger('addAccessRule');
 

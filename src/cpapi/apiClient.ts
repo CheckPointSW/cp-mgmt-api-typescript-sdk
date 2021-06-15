@@ -20,7 +20,7 @@ const SENSITIVE_REQUEST_COMMANDS = ['login', 'add-administrator', 'set-administr
     'add-vpn-community-meshed', 'set-vpn-community-meshed', 'add-vpn-community-star', 'set-vpn-community-star', 'add-simple-gateway',
     'set-simple-gateway', 'add-data-center-server', 'set-data-center-server', 'delete-api-key', 'add-server-certificate',
     'set-server-certificate', 'add-user', 'set-user', 'add-mds', 'set-mds', 'add-checkpoint-host', 'set-checkpoint-host'];
-const FINGERPRINTS_FILE = '../fingerprints.json';
+const FINGERPRINTS_FILE = './fingerprints.json';
 let headers: any = {
     'User-Agent': 'typescript-api-wrapper',// If we run node.js need this header, and if we run through browser we don't
     'Accept': '*/*',

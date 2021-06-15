@@ -1,5 +1,8 @@
 src/not_in_git/
 dst/
+dst/not_in_git/
+dst/**/cp-mgmt-api-typescript-sdk-log.txt
+dst/**/fingerprints.json
 build/
 node_modules/
 .idea/

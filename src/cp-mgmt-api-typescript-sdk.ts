@@ -7,4 +7,3 @@ export {default as getLogger} from './logger/log';
 export {default as CustomLogger} from './logger/customLogger';
 export {default as ApiError} from './errors/apiError';
 export default ApiClient;
-
