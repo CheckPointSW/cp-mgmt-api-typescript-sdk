@@ -1,9 +1,9 @@
 {
-  "name": "@chkp/cp-mgmt-typescript-sdk",
+  "name": "@chkp/cp-mgmt-api-typescript-sdk",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "dst/cp-mgmt-typescript-sdk.js",
-  "types": "dst/cp-mgmt-typescript-sdk.d.ts",
+  "main": "dst/cp-mgmt-api-typescript-sdk.js",
+  "types": "dst/cp-mgmt-api-typescript-sdk.d.ts",
   "homepage": "https://github.com/CheckPointSW/cp-mgmt-api-typescript-sdk",
   "url": "https://github.com/CheckPointSW/cp-mgmt-api-typescript-sdk",
   "repository": "https://github.com/CheckPointSW/cp-mgmt-api-typescript-sdk",
