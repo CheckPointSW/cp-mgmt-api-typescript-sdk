@@ -14,6 +14,6 @@ export default class CustomLogger extends AbstractCategoryLogger {
         }
         message += msg.date.toString() + '\n'
         message += msg.messageAsString + '\n';
-        fs.promises.writeFile('./cp-mgmt-api-typescript-sdk-log.txt', message, {flag: 'a'});
+        fs.promises.writeFile('./cp-mgmt-api-typescript-sdk.log', message, {flag: 'a'});
     }
 }

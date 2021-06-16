@@ -1,6 +1,6 @@
 {
   "name": "@chkp/cp-mgmt-api-typescript-sdk",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "dst/cp-mgmt-api-typescript-sdk.js",
   "types": "dst/cp-mgmt-api-typescript-sdk.d.ts",

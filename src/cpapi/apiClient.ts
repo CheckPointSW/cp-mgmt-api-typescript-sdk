@@ -340,9 +340,10 @@ DATA: ${JSON.stringify(dataForLog, null, 2)}`;
         let fingerprints: { [p: string]: string } = {};
         if (ApiClient.isFingerprintsFileExist()) {
             try {
-                fingerprints = <{ [p: string]: string }> require(FINGERPRINTS_FILE);
+                let fingerprintsStr = fs.readFileSync(FINGERPRINTS_FILE).toString();
+                fingerprints = JSON.parse(fingerprintsStr);
             } catch (e) {
-                logger.error('The fingerprint file is not in Json format.');
+                logger.error('The fingerprint file is not in Json format.', e);
             }
         }
         return fingerprints;
