@@ -87,7 +87,7 @@ export default class ApiClient {
         this._approvedFingerprint = false;
         this._context = context;
         this._agent = new Agent({
-            rejectUnauthorized: false,
+            rejectUnauthorized: true,
             keepAlive: true
         })
     }
@@ -194,9 +194,6 @@ PAYLOAD: ${JSON.stringify(payloadForLog, null, 2)}`);
             headers: headers,
             data: payload,
             httpsAgent: this.agent
-            // httpsAgent: new Agent({ // If there will be parallel problems, we can create new Agent (without keepAlive) for each API request.
-            //     rejectUnauthorized: false
-            // })
         };
         if (this.proxy != null) {
             config.proxy = this.proxy;
@@ -355,7 +352,7 @@ DATA: ${JSON.stringify(dataForLog, null, 2)}`;
         let options: ConnectionOptions = {
             host: this.server,
             port: this.port,
-            rejectUnauthorized: false
+            rejectUnauthorized: true
         }
         return new Promise<string>((resolve) => {
             let client = tls.connect(options, () => {
